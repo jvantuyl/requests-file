@@ -28,4 +28,5 @@ https://github.com/jvantuyl/requests/commit/90b37b30351cb8064aeafdfc442685590cdc
 
 Authors
 --------
-Copyright (C) 2013, Jayson Vantuyl <jayson@aggressive.ly>
+Core Code, Copyright (C) 2015, Jayson Vantuyl <jayson@aggressive.ly>
+Contributions are copyrighted by their respective authors.
