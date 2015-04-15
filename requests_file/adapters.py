@@ -43,11 +43,7 @@ class FileAdapter(BaseAdapter):
                 'hostname without filename (perhaps missing a /?)'
             )
         host, fname = fname.split('/', 1)
-        if host and host != 'localhost':
-            raise UnsupportedFeature(
-                "file scheme doesn't support non-local files at this time"
-            )
-        fname = '/' + fname
+        fname = self.resolve_host(host, fname)
 
         response = Response()
         response.url = request.url
@@ -151,6 +147,14 @@ class FileAdapter(BaseAdapter):
             response.content
 
         return response
+
+    def resolve_host(self, host, fname):
+        if host and host != 'localhost':
+            raise UnsupportedFeature(
+                "file scheme doesn't support non-local files at this time"
+            )
+        else:
+            return '/' + fname
 
     def close(self):
         """close connection (currently doesn't do anything)"""
